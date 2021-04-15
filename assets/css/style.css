@@ -16,3 +16,7 @@ body{
 #canvas-container{
     height:720px;
 } 
+
+div {
+    color: blue;
+}
