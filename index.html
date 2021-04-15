@@ -18,14 +18,39 @@
             <span class="btn btn-primary fa fa-square" id="drawing-rectangle" >Drawing Rectangle</span>
             <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
             <span class="btn btn-info fa fa-line-chart" id="draw-st-line">Draw straight line</span>
+            <span class="btn btn-info fa fa-lock" id="input-text">input text</span>
+            <span class="btn btn-info fa fa-linkedin" id="undo">Undo</span>
+            <span class="btn btn-info fa fa-linkedin" id="redo">Redo</span>
+        </div>
+        <div class="sytle">
+            <form action="" id="form">
+                <label for="colorPicker">color:</label>
+                <input type="color" id="colorPicker" value="#ffffff">
+                <label for="lineJoin">lineJoin:</label>
+                <select name="lineJoin" id="lineJoin">
+                    <option value="round">round</option>
+                    <option value="bevel">bevel</option>
+                    <option selected='selected' value="miter">miter</option>
+                </select>
+                <label for="">font size</label>
+                <input type="text" id="font-size" placeholder="unit:px">
+
+
+
+            </form>
+            
         </div>
         <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="./assets/js/drawAll.js"></script>
         <script type='text/javascript' src="./assets/js/canvas-common.js"></script>
+
         <script type='text/javascript' src="./assets/js/drawing-line.js"></script>
         <script type='text/javascript' src="./assets/js/drawing-rectangle.js"></script>
         <script type="text/javascript" src="./assets/js/drawing-straight-line.js"></script>
+
+        <script src="./assets/js/inputText.js"></script>
         <script type="text/javascript" src="./assets/js/main.js"></script>
     </body>
 </html>

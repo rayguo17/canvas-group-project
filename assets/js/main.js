@@ -8,5 +8,15 @@ $(function () {
     $('#draw-st-line').click(()=>{
         currentFunction = new DrawingStLine(contextReal,contextDraft);
     });
+    $('#input-text').click(()=>{
+        currentFunction = new InputText(contextReal,contextDraft);
+    });
+    $('#undo').click(() => {
+        Undo();
+    });
+    $('#redo').click(() => {
+        Redo();
+    });
+
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
