@@ -71,4 +71,6 @@ class PaintFunction{
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
-}  
+}
+
+//i don't expect this to appear
