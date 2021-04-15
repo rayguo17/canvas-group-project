@@ -10,12 +10,29 @@
 #canvas-draft{
     background-color: transparent;
 }
+
 body{
     overflow:hidden;
+    background-color: antiquewhite;
 }
 #canvas-container{
-    height:720px;
+    height:740px;
+    margin-top: 150px;
+    width: 1300px;
+    display: inline-block;
+    position: relative;
+    border: black 10px solid;
 } 
+.tool{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 650px;
+    border: brown solid 10px;
+    width: 300px;
+}
 
 div {
     color: green;
