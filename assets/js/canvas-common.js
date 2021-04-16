@@ -6,6 +6,8 @@ let currentFunction;
 let dragging = false;
 let DoneStack = [];
 let DeleteStack = [];
+const reader = new FileReader();
+const img = new Image();
 const WordValidation = ['Backspace', 'Enter', 'Shift', 'Control', 'Tab', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'CapsLock'];
 
 $('#canvas-draft').mousedown(function(e){

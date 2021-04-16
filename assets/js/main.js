@@ -18,6 +18,11 @@ $(function () {
     $('#redo').click(() => {
         Redo();
     });
+    $('#download').click((e) => {
+        downloadCanvas();
+        
+    })
+    $('#uploader').on('change', uploadImage);
 
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
