@@ -21,8 +21,11 @@ $(function () {
     $('#download').click((e) => {
         downloadCanvas();
         
-    })
+    });
     $('#uploader').on('change', uploadImage);
+    $('#polygons').click((e) => {
+        currentFunction = new DrawingPolygons(contextReal, contextDraft);
+    });
 
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
