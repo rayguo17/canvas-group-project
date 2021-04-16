@@ -20,7 +20,7 @@ body{
     margin-top: 150px;
     width: 1300px;
     display: inline-block;
-    position: relative;
+     position: relative;
     border: black 10px solid;
 } 
 .tool{
