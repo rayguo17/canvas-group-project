@@ -9,6 +9,7 @@ let DeleteStack = [];
 const WordValidation = ['Backspace', 'Enter', 'Shift', 'Control', 'Tab', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'CapsLock'];
 
 $('#canvas-draft').mousedown(function(e){
+    console.log('click')
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseDown([mouseX,mouseY],e);
@@ -73,5 +74,3 @@ class PaintFunction{
     onMouseEnter(){}
 }
 
-//i don't expect this to appear
-//what is the proble,
