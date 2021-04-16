@@ -1,5 +1,6 @@
 $(function () {
     $('#drawing-rectangle').click(()=>{
+        console.log('rec')
         currentFunction = new DrawingRectangle(contextReal,contextDraft);
     });
     $('#drawing-line').click(()=>{
