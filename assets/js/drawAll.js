@@ -64,6 +64,7 @@ function RedrawAll(stack) {
         }
     }
 }
+//TODO:INPUT PICTURE SHOULD ADD TO DoneStack
 function Undo() {
     contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
     if (DoneStack.length == 0) {
