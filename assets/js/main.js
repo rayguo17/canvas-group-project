@@ -1,5 +1,6 @@
 $(function () {
     $('#drawing-rectangle').click(()=>{
+        console.log('rec')
         currentFunction = new DrawingRectangle(contextReal,contextDraft);
     });
     $('#drawing-line').click(()=>{
@@ -8,5 +9,23 @@ $(function () {
     $('#draw-st-line').click(()=>{
         currentFunction = new DrawingStLine(contextReal,contextDraft);
     });
+    $('#input-text').click(()=>{
+        currentFunction = new InputText(contextReal,contextDraft);
+    });
+    $('#undo').click(() => {
+        Undo();
+    });
+    $('#redo').click(() => {
+        Redo();
+    });
+    $('#download').click((e) => {
+        downloadCanvas();
+        
+    });
+    $('#uploader').on('change', uploadImage);
+    $('#polygons').click((e) => {
+        currentFunction = new DrawingPolygons(contextReal, contextDraft);
+    });
+
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
