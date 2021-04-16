@@ -3,13 +3,13 @@ class DrawingStLine extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#colorPicker').val() };
+        this.style = { color: $('#colorPicker').val(), lineWidth:$('#lineWidth').val()};
     }
     
     onMouseDown(coord, event) {
         this.contextReal.strokeStyle = this.style.color;
         this.contextReal.lineJoin = "round";
-        this.contextReal.lineWidth = 5;
+        this.contextReal.lineWidth = this.style.lineWidth;
         
         this.origX = coord[0];
         this.origY = coord[1];
@@ -17,7 +17,7 @@ class DrawingStLine extends PaintFunction{
     onDragging(coord,event){
         this.contextDraft.strokeStyle = this.style.color;
         this.contextDraft.lineJoin = "round";
-        this.contextDraft.lineWidth = 5;
+        this.contextDraft.lineWidth = this.style.lineWidth;
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextDraft.beginPath();
         this.contextDraft.moveTo(this.origX,this.origY);
@@ -38,7 +38,7 @@ class DrawingStLine extends PaintFunction{
         } else {
             DoneStack.push(history);
             DeleteStack = [];
-            this.style = { color: $('#colorPicker').val() };
+            this.style = { color: $('#colorPicker').val(),lineWidth:$('#lineWidth').val() };
         }
         console.log('Stline',DoneStack);
     }

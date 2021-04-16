@@ -1,10 +1,12 @@
-class DrawingPolygons extends PaintFunction{
+class DrawingPolygons extends PaintFunction {
     constructor(contextReal, contextDraft) {
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.sides = 4;
+        this.sides = $('#polySides').val()||4;
         this.points = [];
+        this.style = { strokeColor: $('#colorPicker').val(),lineWidth:$('#lineWidth').val() };
+        
     }
     onMouseDown(coord, event) {
         this.origX = coord[0];
@@ -21,26 +23,27 @@ class DrawingPolygons extends PaintFunction{
         let radius = Math.sqrt((coord[0] - this.origX) * (coord[0] - this.origX) + (coord[1] - this.origY) * (coord[1] - this.origY));
         let cornerAngle = this.calculateAngle(coord, radius);
         
-        for (let i = 0; i < this.sides; i++){
+        for (let i = 0; i < this.sides; i++) {
             let x = 0;
             let y = 0;
             x = this.origX + radius * Math.cos(2 * Math.PI * i / this.sides + cornerAngle);
             y = this.origY - radius * Math.sin(2 * Math.PI * i / this.sides + cornerAngle);
             points.push([x, y]);
-            // console.log(points);
+             
         }
+        
         return points;
 
     }
-    calculateAngle(coord,radius) {
+    calculateAngle(coord, radius) {
         
-        let relativeCoordX =  coord[0]- this.origX;
-        let relativeCoordY =  this.origY- coord[1];
-        console.log('MouseX', coord[0]);
-        console.log('MouseY', coord[1]);
-        console.log('center', this.origX, this.origY);
-        console.log('X', relativeCoordX > 0);
-        console.log('Y', relativeCoordY > 0);
+        let relativeCoordX = coord[0] - this.origX;
+        let relativeCoordY = this.origY - coord[1];
+        // console.log('MouseX', coord[0]);
+        // console.log('MouseY', coord[1]);
+        // console.log('center', this.origX, this.origY);
+        // console.log('X', relativeCoordX > 0);
+        // console.log('Y', relativeCoordY > 0);
         if (relativeCoordX > 0 && relativeCoordY > 0) {
             //first 
             console.log('first');
@@ -48,14 +51,14 @@ class DrawingPolygons extends PaintFunction{
         }
         if (relativeCoordX < 0 && relativeCoordY > 0) {
             //second
-            console.log('second',Math.asin((relativeCoordY) / radius)+Math.PI)
-            return -(Math.asin((relativeCoordY) / radius)+Math.PI);
+            // console.log('second', Math.asin((relativeCoordY) / radius) + Math.PI)
+            return -(Math.asin((relativeCoordY) / radius) + Math.PI);
         }
         if (relativeCoordX < 0 && relativeCoordY < 0) {
             //third
             
             console.log('third');
-            return Math.PI-Math.asin((relativeCoordY) / radius) ;
+            return Math.PI - Math.asin((relativeCoordY) / radius);
         }
         if (relativeCoordX > 0 && relativeCoordY < 0) {
             //fourth
@@ -65,15 +68,38 @@ class DrawingPolygons extends PaintFunction{
     }
     onDragging(coord) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        let points = this.calculateCoord(coord);
+        this.points = this.calculateCoord(coord);
         this.contextDraft.beginPath();
-        this.contextDraft.moveTo(points[0][0], points[0][1]);
-        for (let i = 0; i < points.length; i++){
-            this.contextDraft.lineTo(points[i][0], points[i][1]);
-            this.contextDraft.moveTo(points[i][0], points[i][1]);
+        this.contextDraft.lineWidth = this.style.lineWidth;
+        this.contextDraft.strokeStyle = this.style.strokeColor;
+        console.log(this.points);
+        this.contextDraft.moveTo(this.points[0][0], this.points[0][1]);
+        for (let i = 0; i < this.points.length; i++) {
+            this.contextDraft.lineTo(this.points[i][0], this.points[i][1]);
+            this.contextDraft.moveTo(this.points[i][0], this.points[i][1]);
             this.contextDraft.stroke();
         }
-        this.contextDraft.lineTo(points[0][0], points[0][1]);
+        this.contextDraft.lineTo(this.points[0][0], this.points[0][1]);
         this.contextDraft.stroke();
     }
+    onMouseUp() {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.beginPath()
+        this.contextReal.lineWidth = this.style.lineWidth;
+        this.contextReal.strokeStyle = this.style.strokeColor;
+        this.contextReal.moveTo(this.points[0][0], this.points[0][1]);
+        for (let i = 0; i < this.points.length; i++) {
+            this.contextReal.lineTo(this.points[i][0], this.points[i][1]);
+            this.contextReal.moveTo(this.points[i][0], this.points[i][1]);
+            this.contextReal.stroke();
+        }
+        this.contextReal.lineTo(this.points[0][0], this.points[0][1]);
+        this.contextReal.stroke();
+        let history = { mode: 'poly', points: this.points, style: this.style };
+        DoneStack.push(history);
+        console.log('POLY', DoneStack);
+        
+        
+    }
+    
 }
