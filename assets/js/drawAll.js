@@ -4,6 +4,7 @@ function drawRectangle_stroke(ctx, start, dim, style) {
     ctx.setLineDash(style.dash);
     ctx.strokeStyle = style.color;
     ctx.strokeRect(start[0], start[1], dim[0], dim[1]);
+    ctx.setLineDash([]);
     
 }
 function drawRectangle_fill(ctx, start, dim, style) {
