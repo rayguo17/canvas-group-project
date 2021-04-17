@@ -41,17 +41,16 @@ function drawLine(ctx, points, style) {
     }
 }
 function drawPoly(ctx, points, style) {
-    ctx.strokeStyle = style.strokeColor;
+    ctx.strokeStyle = style.color;
     ctx.lineWidth = style.lineWidth;
     ctx.lineJoin = 'miter';
     ctx.beginPath();
     ctx.moveTo(points[0][0], points[0][1]);
     for (let i = 0; i < points.length; i++){
         ctx.lineTo(points[i][0], points[i][1]);
-        ctx.moveTo(points[i][0], points[i][1]);
-        ctx.stroke();
+        
     }
-    ctx.lineTo(points[0][0], points[0][1]);
+    ctx.closePath();
     
     ctx.stroke();
 }
