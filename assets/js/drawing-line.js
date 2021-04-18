@@ -5,6 +5,7 @@ class DrawingLine extends PaintFunction{
         this.style = {
             color: $('#colorPicker').val(),
             lineJoin: $('#lineJoin').val(),
+            lineWidth:$('#lineWidth').val()
         };
         this.points = [];
     }
@@ -13,7 +14,7 @@ class DrawingLine extends PaintFunction{
         this.context.strokeStyle = this.style.color;
         this.context.lineJoin = this.style.lineJoin;
         
-        this.context.lineWidth = 5;
+        this.context.lineWidth = this.style.lineWidth;
         this.context.beginPath();
         this.context.moveTo(coord[0],coord[1]);
         this.draw(coord[0],coord[1]);
@@ -37,6 +38,7 @@ class DrawingLine extends PaintFunction{
         this.style = {
             color: $('#colorPicker').val(),
             lineJoin: $('#lineJoin').val(),
+            lineWidth:$('#lineWidth').val()
         };
         this.points = [];
     }

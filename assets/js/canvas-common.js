@@ -65,6 +65,13 @@ $('#lineJoin').change(function () {
 $('#font-size').change(function () {
     currentFunction.style.font = $(this).val();
 })
+$('#polySides').change(function () {
+    currentFunction.sides = $(this).val();
+})
+$('#lineWidth').change(function () {
+    currentFunction.style.lineWidth = $(this).val();
+    console.log('line width change' ,$(this).val())
+})
 
 class PaintFunction{
     constructor(){}
