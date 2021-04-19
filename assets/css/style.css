@@ -16,15 +16,15 @@
 
 h1{
     font-family: 'Permanent Marker', cursive;
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 #quote{
     display:block;
     position: absolute;
-    top:8%;
-    left: 3%;
-    color: rgb(168, 167, 167);
+    top: 8%;
+    right: 6%;
+    color: rgb(153, 152, 152);
 }
 #board, #canvas-container{
     display: block;
@@ -58,6 +58,21 @@ h1{
     z-index: 1000;
 }
 
+#wallFrameDiv{
+    display: block;
+    position: absolute;
+    top: 4%;
+    left:3%;
+}
+
+.wallFrame{
+    display: block;
+    width:500px;
+    height:350px;
+    margin: 2vh;
+}
+
+
 #stylingBackground{
     display:block;
     position: absolute;
@@ -68,11 +83,11 @@ h1{
     background-image: url(/assets/images/stylingBackground.png);
     background-repeat: no-repeat;
     text-align: center;
-    padding: 10vh;
+    padding: 6vh;
 }
 
 form{
-    padding: 1vh 5vh 5vh;
+    padding: 0vh 5vh 5vh 0vh;
     color: rgb(255, 255, 255);
     border-color: honeydew;
     
@@ -80,7 +95,7 @@ form{
 
 input, select, #uploader, label{
     display: inline-block;
-    height: 3vh;
+    height: 2vh;
     border: none;
     outline:none;
     font-family: 'montserrat', sans-serif;
@@ -90,7 +105,7 @@ input, select, #uploader, label{
 label{
     font-size: 1.8vh;
     text-align: left;
-    width:30%;
+    width:40%;
 }
  select, #uploader{
     width:40%;
