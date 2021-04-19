@@ -30,6 +30,9 @@ $(function () {
     $('#polygons').click((e) => {
         currentFunction = new DrawingPolygons(contextReal, contextDraft);
     });
+    $('#save').click((e) => {
+        savePaint();
+    })
 
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })

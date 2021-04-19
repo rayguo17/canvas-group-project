@@ -1,154 +1,178 @@
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Your Little Canvas Gallery</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-        <link href="./assets/css/style.css" rel="stylesheet" type='text/css'>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div id=background>   
-            <div id="quote">
-                <h1>DRAWING IS 
-                <br>EXERCISE FOR
-                <br>A RESTLESS 
-                <br>IMAGINATION.
-                <br> - TIM BURTON
-                </h1>
-            </div>
-            <img id="board"src="/assets/images/paintBoard.png">
-            <div id="canvas-container">
-                <canvas id="canvas-real" class="canvas" width='1014px' height='618px'></canvas>
-                <canvas id="canvas-draft" class="canvas" width='1014px' height='618px'></canvas>
-            </div>
-            <div id="wallFrameDiv">
-            <img class="wallFrame"src="/assets/images/wallFrame.png">
-            <img class="wallFrame"src="/assets/images/wallFrame.png">
-            </div>
-            <div id="stylingBackground" id="form">
-                <form action="" >
-                    <h2>Styling</h2>
-                    <label for="">Font Size :</label>
-                    <input type="text" id="font-size" placeholder="unit:px">
-                    <label for="lineJoin">Line Join :</label>
-                    <select name="lineJoin" id="lineJoin">
-                        <option value="round">round</option>
-                        <option value="bevel">bevel</option>
-                        <option selected='selected' value="miter">miter</option>
-                    </select>
-                    
-                    <label for="uploader">Upload File :</label>
-                    <input type="file" id="uploader"/>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Little Canvas Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
 
-                    <label for="polySides">No. of sides for polygons:</label>
-                    <input type="text" id="polySides">
-                    <label for="lineWidth">line width:</label>
-                    <input type="range" id="lineWidth" min="1" max="20" value="1">
-                   
-                    <label for="colorPicker">Color :</label>
-                    <input type="color" id="colorPicker" value="#ff0000">
-                    <input type="color" id="colorPicker" value="#00ff00">
-                    <input type="color" id="colorPicker" value="#0099ff">
-                    <input type="color" id="colorPicker" value="#9933ff">
-                
-                </form>
-            
-
-            </div>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="background">
+      <div id="quote">
+        <h1>
+          DRAWING IS <br />EXERCISE FOR <br />A RESTLESS <br />IMAGINATION.
+          <br />
+          - TIM BURTON
+        </h1>
+      </div>
+      <img id="board" src="/assets/images/paintBoard.png" />
+      <div id="canvas-container">
+        <canvas
+          id="canvas-real"
+          class="canvas"
+          width="1014px"
+          height="618px"
+        ></canvas>
+        <canvas
+          id="canvas-draft"
+          class="canvas"
+          width="1014px"
+          height="618px"
+        ></canvas>
+      </div>
+      <div id="wallFrameDiv">
+        <div class="holderDiv wallFrame1">
+          <img class="wallFrame" src="/assets/images/wallFrame.png" />
+          <div class="wallPlace">placeholder</div>
         </div>
-        <div id=toolBar>
-            <div class="buttonsBox">
-                <div class="buttons">
-                <i class="fa fa-paint-brush fa-2x" id="drawing-line"></i>
-                </div>
-                <div class="buttons">
-                    <i class="fa fa-square fa-2x" id="drawing-rectangle"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-circle fa-2x" id="drawing-circle"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fa fa-slash fa-2x" id="draw-st-line"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-draw-polygon fa-2x" id="polygons"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-fill-drip fa-2x" id="fill-bucket"></i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-font fa-2x" id="input-text"> </i>
-                 </div>
-                 <div class="divider"></div>
-                 <div class="buttons">
-                    <i class="fas fa-eraser fa-2x" id="eraser"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-font fa-2x" id="input-text"> </i>
-                 </div>
-                 <div class="divider"></div>
-                 <div class="buttons">
-                    <i class="fa fa-undo fa-2x" id="undo"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-redo fa-2x" id="redo"> </i>
-                 </div>
-                 <div class="buttons">
-                    <i class="fas fa-download fa-2x"  id="download"> </i>
-                 </div>
-                 
-               
-         
-                
-                
-            </div>
+        <div class="holderDiv wallFrame2">
+          <img class="wallFrame" src="/assets/images/wallFrame.png" />
+          <div class="wallPlace">placeholder</div>
+        </div>
+      </div>
+      <div id="stylingBackground" id="form">
+        <form action="">
+          <h2>Styling</h2>
+          <label for="">Font Size :</label>
+          <input type="text" id="font-size" placeholder="unit:px" />
+          <label for="lineJoin">Line Join :</label>
+          <select name="lineJoin" id="lineJoin">
+            <option value="round">round</option>
+            <option value="bevel">bevel</option>
+            <option selected="selected" value="miter">miter</option>
+          </select>
+
+          <label for="uploader">Upload File :</label>
+          <input type="file" id="uploader" />
+
+          <label for="polySides">No. of sides for polygons:</label>
+          <input type="text" id="polySides" />
+          <label for="lineWidth">line width:</label>
+          <input type="range" id="lineWidth" min="1" max="20" value="1" />
+
+          <label for="colorPicker">Color :</label>
+          <input type="color" id="colorPicker" value="#ff0000" />
+          <input type="color" id="colorPicker" value="#00ff00" />
+          <input type="color" id="colorPicker" value="#0099ff" />
+          <input type="color" id="colorPicker" value="#9933ff" />
+        </form>
+      </div>
+    </div>
+    <div id="toolBar">
+      <div class="buttonsBox">
+        <div class="buttons">
+          <i class="fa fa-paint-brush fa-2x" id="drawing-line"></i>
+        </div>
+        <div class="buttons">
+          <i class="fa fa-square fa-2x" id="drawing-rectangle"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-circle fa-2x" id="drawing-circle"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fa fa-slash fa-2x" id="draw-st-line"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-draw-polygon fa-2x" id="polygons"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-fill-drip fa-2x" id="fill-bucket"></i>
         </div>
 
-        
-        
-        
-                    </form>
-                </div>
+        <div class="divider"></div>
+        <div class="buttons">
+          <i class="fas fa-eraser fa-2x" id="eraser"> </i>
         </div>
+        <div class="buttons">
+          <i class="fas fa-font fa-2x" id="input-text"> </i>
+        </div>
+        <div class="divider"></div>
+        <div class="buttons">
+          <i class="fa fa-undo fa-2x" id="undo"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-redo fa-2x" id="redo"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-download fa-2x" id="download"> </i>
+        </div>
+        <div class="buttons">
+          <i class="fas fa-save fa-2x" id="save"></i>
+        </div>
+      </div>
+    </div>
 
-       
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBwofPespWJZpyx_KTxAJ_ZtxJ7tbnDECY",
-            authDomain: "canvas-1c0d8.firebaseapp.com",
-            projectId: "canvas-1c0d8",
-            storageBucket: "canvas-1c0d8.appspot.com",
-            messagingSenderId: "10821322511",
-                appId: "1:10821322511:web:d53fafe3e1f20ed869a07a"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-        </script>
-        <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="./assets/js/drawAll.js"></script>
-        <script src="./assets/js/pictureHandleing.js"></script>
-        
-        <script type='text/javascript' src="./assets/js/canvas-common.js"></script>
-        <script src="./assets/js/polygons.js"></script>
-        <script src="./assets/js/fillBucket.js"></script>
-        <script type='text/javascript' src="./assets/js/drawing-line.js"></script>
-        <script type='text/javascript' src="./assets/js/drawing-rectangle.js"></script>
-        <script type="text/javascript" src="./assets/js/drawing-straight-line.js"></script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBwofPespWJZpyx_KTxAJ_ZtxJ7tbnDECY",
+        authDomain: "canvas-1c0d8.firebaseapp.com",
+        projectId: "canvas-1c0d8",
+        storageBucket: "canvas-1c0d8.appspot.com",
+        messagingSenderId: "10821322511",
+        appId: "1:10821322511:web:d53fafe3e1f20ed869a07a",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.js"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/drawAll.js"></script>
+    <script src="./assets/js/pictureHandleing.js"></script>
 
-        <script src="./assets/js/inputText.js"></script>
-        <script type="text/javascript" src="./assets/js/main.js"></script>
-    </body>
+    <script type="text/javascript" src="./assets/js/canvas-common.js"></script>
+    <script src="./assets/js/polygons.js"></script>
+    <script src="./assets/js/fillBucket.js"></script>
+    <script type="text/javascript" src="./assets/js/drawing-line.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/drawing-rectangle.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/drawing-straight-line.js"
+    ></script>
+
+    <script src="./assets/js/inputText.js"></script>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+  </body>
 </html>
