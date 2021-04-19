@@ -11,7 +11,7 @@ const img = new Image();
 const WordValidation = ['Backspace', 'Enter', 'Shift', 'Control', 'Tab', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'CapsLock'];
 
 $('#canvas-draft').mousedown(function(e){
-    console.log('click')
+    
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseDown([mouseX,mouseY],e);
@@ -52,7 +52,10 @@ $('#canvas-draft').mouseenter(function(e){
 
 //change color with the string
 $('#colorPicker').change(function () {
-    console.log($(this));
+    console.log(typeof $(this).val());
+    console.log($(this).val());
+    let color = $(this).val();
+    console.log(parseInt(color.slice(5,7),16));
     currentFunction.style.color = $(this).val();
 });
 //change line join

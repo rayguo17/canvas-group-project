@@ -12,6 +12,10 @@ $(function () {
     $('#input-text').click(()=>{
         currentFunction = new InputText(contextReal,contextDraft);
     });
+    $('#fill-bucket').click(() => {
+        console.log('press');
+        currentFunction = new FillBucket(contextReal,contextDraft);
+    });
     $('#undo').click(() => {
         Undo();
     });
