@@ -11,6 +11,21 @@ function drawRectangle_fill(ctx, start, dim, style) {
     ctx.fillStyle = style.color;
     ctx.fillRect(start[0], start[1], dim[0], dim[1]);
 }
+
+function drawCircle_fill(ctx, center, radius, style){
+    ctx.fillStyle = style.color;
+    ctx.beginPath();
+    ctx.arc(center[0],center[1],radius,0,2*Math.PI);
+    ctx.fill();
+}
+
+// function drawCircle_stroke(ctx, center, radius, style){
+//     ctx.strokeStyle = style.color;
+//     ctx.beginPath();
+//     ctx.arc(center[0],center[1],radius,0,2*Math.PI);
+//     ctx.stroke();
+// }
+
 function drawStline(ctx, start, end, style) {
     ctx.strokeStyle = style.color;
     ctx.lineWidth = style.lineWidth;
@@ -55,12 +70,28 @@ function drawPoly(ctx, points, style) {
     
     ctx.stroke();
 }
+
 function fill(ctx, start,style) {
     let reFill = new FillBucket(ctx);
     //console.log(reFill.imgData);
     reFill.style = style;
     reFill.onMouseDown(start);
 }
+
+
+function clear(ctx){
+    ctx.clearRect(0,0,canvasReal.width,canvasReal.height);
+}
+
+function eraser(ctx,points,style){
+    console.log("eraser fn works");
+    ctx.lineWidth= style.lineWidth;
+    for(let i=0;i<points.length; i++){
+    ctx.clearRect(points[i][0]-4,points[i][1]-4,ctx.lineWidth*8,ctx.lineWidth*8);
+    }
+}
+
+
 //TODO:SEPERATE STROKE STYLE AND FILL STYLE
 function RedrawAll(stack) {
     //console.log('RedrawAll',stack);
@@ -71,6 +102,9 @@ function RedrawAll(stack) {
             case 'rec':
                 console.log('rec');
                 drawRectangle_fill(contextReal, action.start, action.dim, action.style);
+                break;
+            case 'circle':
+                drawCircle_fill(contextReal,action.center,action.radius,action.style);
                 break;
             case 'StLine':
                 drawStline(contextReal, action.start, action.end, action.style);
@@ -86,6 +120,12 @@ function RedrawAll(stack) {
                 break;
             case 'fill':
                 fill(contextReal, action.start,action.style);
+                break;
+            case 'clear':
+                clear(contextReal);
+                break;
+            case 'eraser':
+                eraser(contextReal,action.points,action.style);
                 break;
             default:
                 console.log('wrong name');
