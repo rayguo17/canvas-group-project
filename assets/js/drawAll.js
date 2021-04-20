@@ -4,6 +4,7 @@ function drawRectangle_stroke(ctx, start, dim, style) {
     ctx.setLineDash(style.dash);
     ctx.strokeStyle = style.color;
     ctx.strokeRect(start[0], start[1], dim[0], dim[1]);
+    ctx.setLineDash([]);
     
 }
 function drawRectangle_fill(ctx, start, dim, style) {
@@ -70,6 +71,14 @@ function drawPoly(ctx, points, style) {
     ctx.stroke();
 }
 
+function fill(ctx, start,style) {
+    let reFill = new FillBucket(ctx);
+    //console.log(reFill.imgData);
+    reFill.style = style;
+    reFill.onMouseDown(start);
+}
+
+
 function clear(ctx){
     ctx.clearRect(0,0,canvasReal.width,canvasReal.height);
 }
@@ -81,6 +90,7 @@ function eraser(ctx,points,style){
     ctx.clearRect(points[i][0]-4,points[i][1]-4,ctx.lineWidth*8,ctx.lineWidth*8);
     }
 }
+
 
 //TODO:SEPERATE STROKE STYLE AND FILL STYLE
 function RedrawAll(stack) {
@@ -108,12 +118,15 @@ function RedrawAll(stack) {
             case 'poly':
                 drawPoly(contextReal, action.points, action.style);
                 break;
+            case 'fill':
+                fill(contextReal, action.start,action.style);
+                break;
             case 'clear':
                 clear(contextReal);
                 break;
             case 'eraser':
-                    eraser(contextReal,action.points,action.style);
-                    break;
+                eraser(contextReal,action.points,action.style);
+                break;
             default:
                 console.log('wrong name');
                 break;

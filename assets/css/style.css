@@ -62,17 +62,31 @@ h1{
     display: block;
     position: absolute;
     top: 4%;
-    left:3%;
+    left:0.5%;
 }
 
 .wallFrame{
     display: block;
-    width:500px;
+    width:550px;
     height:350px;
     margin: 2vh;
 }
+.holderDiv{
+    
+    position: relative;
 
-
+}
+.holderDiv .wallPlace{
+    position: absolute;
+    border: solid black 1px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 443px;
+    height: 270px;
+    margin: auto auto;
+}
 #stylingBackground{
     display:block;
     position: absolute;

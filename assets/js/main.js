@@ -20,6 +20,11 @@ $(function () {
     $('#input-text').click(()=>{
         currentFunction = new InputText(contextReal,contextDraft);
     });
+
+    $('#fill-bucket').click(() => {
+        console.log('press');
+        currentFunction = new FillBucket(contextReal,contextDraft);
+    });
     $('#eraser').click(()=>{
         console.log("eraser");
         currentFunction = new Eraser(contextReal,contextDraft);
@@ -36,10 +41,17 @@ $(function () {
     });
     $('#download').click((e) => {
         downloadCanvas();
-        
     });
     $('#uploader').on('change', uploadImage);
-    
 
+    $('#polygons').click((e) => {
+        currentFunction = new DrawingPolygons(contextReal, contextDraft);
+    });
+    $('#save').click((e) => {
+        savePaint();
+    });
+    $('#search').click((e) => {
+        getPaint(e);
+    });
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
