@@ -25,6 +25,7 @@ class DrawingRectangle extends PaintFunction{
         if (history.dim[0] == 0 || history.dim[1] == 0) {
             
         } else {
+            currentSafeState = 0;
             DoneStack.push(history);
             DeleteStack = [];
             this.style = { color: $('#colorPicker').val() };

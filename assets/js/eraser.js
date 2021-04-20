@@ -22,6 +22,7 @@ class Eraser extends PaintFunction{
         let history = { points: this.points, style: this.style, mode: 'eraser'};
         DoneStack.push(history);
         DeleteStack = [];
+        currentSafeState = 0;
         this.style = {lineWidth:$('#lineWidth').val()};
         console.log("eraser",DoneStack);
     }

@@ -75,6 +75,7 @@ class FillBucket extends PaintFunction{
     onMouseUp(coord, event) {
         let history = { mode: 'fill', start: [this.origX, this.origY], style: this.style };
         DoneStack.push(history);
+        currentSafeState = 0;
         this.style = {
             color: $('#colorPicker').val()
         };

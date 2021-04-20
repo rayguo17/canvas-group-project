@@ -33,6 +33,7 @@ class DrawingCircle extends PaintFunction{
         } else {
             DoneStack.push(history);
             DeleteStack = [];
+            currentSafeState = 0;
             this.style = { color: $('#colorPicker').val() };
         }
         console.log('Circle',DoneStack);

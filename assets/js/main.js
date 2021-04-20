@@ -53,5 +53,17 @@ $(function () {
     $('#search').click((e) => {
         getPaint(e);
     });
+    $('.wallPlace').click((e) => {
+        //console.log(e.target.parentElement.nodeName);
+        if (e.target.nodeName == 'IMG') {
+            //console.log(e.target.parentElement);
+            wallHandle(e.target.parentElement.id, e);
+        } else {
+            console.log(e.target.parentElement);
+        }
+    });
+    $('#newPage').click((e) => {
+        newPage(e);
+    })
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 
 })
