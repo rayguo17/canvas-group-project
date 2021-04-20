@@ -49,11 +49,11 @@
       <div id="wallFrameDiv">
         <div class="holderDiv wallFrame1">
           <img class="wallFrame" src="/assets/images/wallFrame.png" />
-          <div class="wallPlace">placeholder</div>
+          <div class="wallPlace"></div>
         </div>
         <div class="holderDiv wallFrame2">
           <img class="wallFrame" src="/assets/images/wallFrame.png" />
-          <div class="wallPlace">placeholder</div>
+          <div class="wallPlace"></div>
         </div>
       </div>
       <div id="stylingBackground" id="form">
@@ -125,11 +125,16 @@
         <div class="buttons">
           <i class="fas fa-save fa-2x" id="save"></i>
         </div>
+        <div class="buttons">
+          <i class="fas fa-search fa-2x" id="search"></i>
+        </div>
       </div>
     </div>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -146,6 +151,7 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+      console.log(firebase.storage);
     </script>
     <script
       type="text/javascript"

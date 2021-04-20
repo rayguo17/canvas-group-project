@@ -55,8 +55,11 @@ function drawPoly(ctx, points, style) {
     
     ctx.stroke();
 }
-function fill(ctx, imgData) {
-    ctx.putImageData(imgData, 0, 0);
+function fill(ctx, start,style) {
+    let reFill = new FillBucket(ctx);
+    //console.log(reFill.imgData);
+    reFill.style = style;
+    reFill.onMouseDown(start);
 }
 //TODO:SEPERATE STROKE STYLE AND FILL STYLE
 function RedrawAll(stack) {
@@ -82,7 +85,7 @@ function RedrawAll(stack) {
                 drawPoly(contextReal, action.points, action.style);
                 break;
             case 'fill':
-                fill(contextReal, action.imgData);
+                fill(contextReal, action.start,action.style);
                 break;
             default:
                 console.log('wrong name');

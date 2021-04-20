@@ -24,7 +24,6 @@ $(function () {
     });
     $('#download').click((e) => {
         downloadCanvas();
-        
     });
     $('#uploader').on('change', uploadImage);
     $('#polygons').click((e) => {
@@ -32,6 +31,9 @@ $(function () {
     });
     $('#save').click((e) => {
         savePaint();
+    });
+    $('#search').click((e) => {
+        getPaint(e);
     })
 
     currentFunction = new DrawingRectangle(contextReal,contextDraft); 

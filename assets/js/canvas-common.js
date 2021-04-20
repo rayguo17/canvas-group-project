@@ -10,7 +10,7 @@ let DeleteStack = [];
 const reader = new FileReader();
 const img = new Image();
 const WordValidation = ['Backspace', 'Enter', 'Shift', 'Control', 'Tab', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'CapsLock'];
-
+//TODO: CHANGE COLOR IN ON MOUSE UP;
 $('#canvas-draft').mousedown(function(e){
     
     let mouseX = e.offsetX;

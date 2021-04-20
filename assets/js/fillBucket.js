@@ -16,6 +16,12 @@ class FillBucket extends PaintFunction{
         this.startR = this.context.getImageData(this.origX, this.origY, 1, 1).data[0];
         this.startG = this.context.getImageData(this.origX, this.origY, 1, 1).data[1];
         this.startB = this.context.getImageData(this.origX, this.origY, 1, 1).data[2];
+        this.startO = this.context.getImageData(this.origX, this.origY, 1, 1).data[3];
+        
+        if (`#${this.startR.toString(16).padStart(2,'0')}${this.startG.toString(16).padStart(2,'0')}${this.startB.toString(16).padStart(2,'0')}` == this.style.color && this.startO ==255) {
+            alert("they are the same color");
+            return;
+        }
         this.pixelStack.push([this.origX, this.origY]);
         console.log('start', this.startR, this.startG, this.startB);
         while (this.pixelStack.length > 0) {
@@ -31,6 +37,7 @@ class FillBucket extends PaintFunction{
             pixelPosition += canvasDraft.width * 4;
             let reachLeft = false;
             let reachRight = false;
+            //because he cannot tell whether he is original color or not;
             while (y++ < canvasReal.height - 1 && this.matchStartColor(pixelPosition)) {
                 this.paintColor(pixelPosition);
                 if (x>0) {
@@ -63,15 +70,23 @@ class FillBucket extends PaintFunction{
         }
         this.context.clearRect(0, 0, canvasReal.width, canvasDraft.height);
         this.context.putImageData(this.imgData, 0, 0);
-        let history = { mode: 'fill', imgData: this.imgData };
+        
+    }
+    onMouseUp(coord, event) {
+        let history = { mode: 'fill', start: [this.origX, this.origY], style: this.style };
         DoneStack.push(history);
+        this.style = {
+            color: $('#colorPicker').val()
+        };
+        console.log('fill', DoneStack);
     }
 
     matchStartColor(pixelPos) {
         let colorR = this.imgData.data[pixelPos];
         let colorG = this.imgData.data[pixelPos + 1];
         let colorB = this.imgData.data[pixelPos + 2];
-        return (colorR == this.startR && colorG == this.startG && colorB == this.startB);
+        let colorO = this.imgData.data[pixelPos + 3];
+        return (colorR == this.startR && colorG == this.startG && colorB == this.startB && colorO ==this.startO);
     }
     paintColor(pixelPos) {
         let colorR = parseInt(this.style.color.slice(1, 3),16);
