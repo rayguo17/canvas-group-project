@@ -33,7 +33,17 @@ function getPaint(e) {
             type: "GET",
         }).done(function (data) {
             console.log(data);
-            RedrawAll(data.Stack);
+            if (currentSafeState || DoneStack.length == 0) {
+                RedrawAll(data.Stack);
+                DeleteStack = [];
+                currentSafeState = 1;
+                DoneStack = data.Stack;
+                currentName = data.paintBoardName;
+
+            } else {
+                alert('please safe the current picture first!')
+            }
+            //RedrawAll(data.Stack);
         }).fail(function (data) {
             console.log('error', data);
         }).always(function (data) {
@@ -44,7 +54,24 @@ function getPaint(e) {
 
 function savePaint(e) {
     console.log('running');
-    let name = prompt("What is the name of your MasterPiece?");
+    let name;
+    if (currentName.length > 0) {
+        name = currentName;
+        if (confirm("This will override the load file, Are you sure you want to save?")) {
+            
+        } else {
+            return;
+        }
+    } else {
+        name = prompt("What is the name of your MasterPiece?");
+        if (name == null) {
+            console.log('cancel saving');
+            return;
+        }
+        if (name.length == 0) {
+            alert('name cannot be empty!');
+            return;
+        }
     //check the name exist locally?
     for (let i = 0; i < PaintBoards.length; i++){
         if (name == PaintBoards[i].paintBoardName) {
@@ -65,7 +92,10 @@ function savePaint(e) {
             }
             
         })
-    })
+    });
+    }
+    
+    currentSafeState = 1;
     let paintBoard = {
         paintBoardName: name,
         Stack: DoneStack
