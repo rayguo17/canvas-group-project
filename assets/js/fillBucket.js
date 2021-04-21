@@ -3,7 +3,7 @@ class FillBucket extends PaintFunction{
         super();
         this.context = context;
         this.style = {
-            color:$('#colorPicker').val()
+            color:$('#fillColorDiv #colorPicker').val()
         }
         this.pixelStack = [];//initailize on mouse up
         this.imgData = this.context.getImageData(0, 0, canvasDraft.width, canvasDraft.height);//initialize on mouse up
@@ -77,7 +77,7 @@ class FillBucket extends PaintFunction{
         DoneStack.push(history);
         currentSafeState = 0;
         this.style = {
-            color: $('#colorPicker').val()
+            color: $('#fillColorDiv #colorPicker').val()
         };
         console.log('fill', DoneStack);
     }

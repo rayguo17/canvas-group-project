@@ -55,7 +55,14 @@ $('#canvas-draft').mouseenter(function(e){
 
 
 //change color with the string
-$('#colorPicker').change(function () {
+$('#strokeColorDiv #colorPicker').change(function () {
+    console.log(typeof $(this).val());
+    console.log($(this).val());
+    let color = $(this).val();
+    console.log(parseInt(color.slice(5,7),16));
+    currentFunction.style.color = $(this).val();
+});
+$('#fillColorDiv #colorPicker').change(function () {
     console.log(typeof $(this).val());
     console.log($(this).val());
     let color = $(this).val();

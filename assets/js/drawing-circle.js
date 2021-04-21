@@ -3,7 +3,7 @@ class DrawingCircle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#colorPicker').val() };
+        this.style = { color: $('#fillColorDiv #colorPicker').val() };
     }
     
     onMouseDown(coord,event){
@@ -34,7 +34,7 @@ class DrawingCircle extends PaintFunction{
             DoneStack.push(history);
             DeleteStack = [];
             currentSafeState = 0;
-            this.style = { color: $('#colorPicker').val() };
+            this.style = { color: $('#fillColorDiv #colorPicker').val() };
         }
         console.log('Circle',DoneStack);
     }

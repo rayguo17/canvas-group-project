@@ -3,7 +3,7 @@ class DrawingRectangle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#colorPicker').val() };
+        this.style = { color: $('#fillColorDiv #colorPicker').val() };
     }
     
     onMouseDown(coord,event){
@@ -28,7 +28,7 @@ class DrawingRectangle extends PaintFunction{
             currentSafeState = 0;
             DoneStack.push(history);
             DeleteStack = [];
-            this.style = { color: $('#colorPicker').val() };
+            this.style = { color: $('#fillColorDiv #colorPicker').val() };
         }
         
         console.log('Rec',DoneStack);
