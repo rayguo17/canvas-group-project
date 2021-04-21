@@ -3,16 +3,21 @@ class DrawingRectangle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#strokeColorDiv #colorPicker').val() };
+        this.style = { 
+            color: $('#strokeColorDiv #colorPicker').val(),
+            lineWidth:$('#lineWidth').val()
+        };
     }
     
     onMouseDown(coord,event){
         this.contextReal.strokeStyle = this.style.color;
+        this.contextReal.lineWidth = this.style.lineWidth;
         this.origX = coord[0];
         this.origY = coord[1];
     }
     onDragging(coord,event){
         this.contextDraft.strokeStyle = this.style.color;
+        this.contextDraft.lineWidth = this.style.lineWidth;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.contextDraft.strokeRect(this.origX,this.origY,coord[0]- this.origX,coord[1] - this.origY)
     }
@@ -28,7 +33,10 @@ class DrawingRectangle extends PaintFunction{
             currentSafeState = 0;
             DoneStack.push(history);
             DeleteStack = [];
-            this.style = { color: $('#strokeColorDiv #colorPicker').val() };
+            this.style = { 
+                color: $('#strokeColorDiv #colorPicker').val(),
+                lineWidth:$('#lineWidth').val() 
+            };
         }
         
         console.log('Rec',DoneStack);

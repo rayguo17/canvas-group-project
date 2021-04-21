@@ -26,12 +26,14 @@ $(function () {
         $('#stylingBackground').animate({right:'-8%'});
         $('#colorDiv').show();
         $('#strokeColorDiv').show();
+        $('#lineWidthDiv').show();
         console.log('rec');
         currentFunction = new DrawingRectangle(contextReal,contextDraft);
     });
     $('#drawing-circle').click(()=>{
         $('#stylingBackground').animate({right:'-8%'});
         $('#strokeColorDiv').show();
+        $('#lineWidthDiv').show();
         console.log("circle");
         currentFunction = new DrawingCircle(contextReal,contextDraft);
     });
@@ -39,6 +41,7 @@ $(function () {
         $('#stylingBackground').animate({right:'-8%'});
         $('#strokeColorDiv').show();
         $('#polygonSidesDiv').show();
+        $('#lineWidthDiv').show();
         currentFunction = new DrawingPolygons(contextReal, contextDraft);
     });
     $('#input-text').click(()=>{

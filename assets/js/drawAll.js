@@ -9,11 +9,13 @@ function drawRectangle_stroke(ctx, start, dim, style) {
 }
 function drawRectangle_fill(ctx, start, dim, style) {
     ctx.strokeStyle = style.color;
+    ctx.lineWidth = style.lineWidth;
     ctx.strokeRect(start[0], start[1], dim[0], dim[1]);
 }
 
 function drawCircle_fill(ctx, center, radius, style){
     ctx.strokeStyle = style.color;
+    ctx.lineWidth = style.lineWidth;
     ctx.beginPath();
     ctx.arc(center[0],center[1],radius,0,2*Math.PI);
     ctx.stroke();

@@ -3,17 +3,22 @@ class DrawingCircle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#strokeColorDiv #colorPicker').val() };
+        this.style = { 
+            color: $('#strokeColorDiv #colorPicker').val(),
+            lineWidth:$('#lineWidth').val()
+        };
     }
     
     onMouseDown(coord,event){
         this.contextReal.strokeStyle = this.style.color;
+        this.contextReal.lineWidth = this.style.lineWidth;
         this.origX = coord[0];
         this.origY = coord[1];
    
     }
     onDragging(coord,event){
         this.contextDraft.strokeStyle = this.style.color;
+        this.contextDraft.lineWidth = this.style.lineWidth;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.contextDraft.beginPath();
         this.contextDraft.arc((this.origX+coord[0])/2,(this.origY+coord[1])/2,(coord[0]-this.origX)/2,0,2*Math.PI);
@@ -24,6 +29,7 @@ class DrawingCircle extends PaintFunction{
     onMouseUp(coord){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.contextReal.strokeStyle = this.style.color;
+        this.contextReal.lineWidth = this.style.lineWidth;
         this.contextReal.beginPath();
         this.contextReal.arc((this.origX+coord[0])/2,(this.origY+coord[1])/2,(coord[0]-this.origX)/2,0,2*Math.PI);
         this.contextReal.stroke();
@@ -34,7 +40,10 @@ class DrawingCircle extends PaintFunction{
             DoneStack.push(history);
             DeleteStack = [];
             currentSafeState = 0;
-            this.style = { color: $('#strokeColorDiv #colorPicker').val() };
+            this.style = { 
+                color: $('#strokeColorDiv #colorPicker').val() ,
+                lineWidth:$('#lineWidth').val()
+            }
         }
         console.log('Circle',DoneStack);
     }
