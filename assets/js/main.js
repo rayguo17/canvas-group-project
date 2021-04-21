@@ -31,7 +31,7 @@ $(function () {
     });
     $('#drawing-circle').click(()=>{
         $('#stylingBackground').animate({right:'-8%'});
-        $('#fillColorDiv').show();
+        $('#strokeColorDiv').show();
         console.log("circle");
         currentFunction = new DrawingCircle(contextReal,contextDraft);
     });
