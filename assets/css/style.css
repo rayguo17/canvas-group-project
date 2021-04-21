@@ -101,14 +101,24 @@ h1{
 #uploadDiv{
     position: absolute;
     bottom: 0%;
-    right: 16%;
-    width: 10vw;
+    right: 22%;
+    width: 8vw;
+    border-radius: 5% ;
+    text-align: center;
 }
 
-#uploader{
+#uploadDiv form{
+    height:5vh;
+    padding: 0;
+    
+}
+
+.uploader{
     color: gray;
-    width:10vw;
+    width:8vw;
     display:none;
+    font-size: 1vh;
+    background-color: rgba(216, 215, 213, 0.473) ;
 }
 
 .stylingOptions{
