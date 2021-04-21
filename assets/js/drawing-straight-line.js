@@ -36,6 +36,7 @@ class DrawingStLine extends PaintFunction{
         if (history.start[0] - history.end[0] == 0 || history.start[1] - history.end[1]==0) {
             console.log('noinput')
         } else {
+            currentSafeState = 0;
             DoneStack.push(history);
             DeleteStack = [];
             this.style = { color: $('#colorPicker').val(),lineWidth:$('#lineWidth').val() };

@@ -34,6 +34,7 @@ class DrawingLine extends PaintFunction{
             DoneStack.push(history);
             console.log(DoneStack);
             DeleteStack = [];
+            currentSafeState = 0;
         }
         this.style = {
             color: $('#colorPicker').val(),

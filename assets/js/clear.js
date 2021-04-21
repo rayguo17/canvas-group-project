@@ -6,6 +6,7 @@ function Clear(){
     } else {
         DoneStack.push(history);
         DeleteStack = [];
+        currentSafeState = 0;
     };
     console.log("clear",DoneStack);
 }

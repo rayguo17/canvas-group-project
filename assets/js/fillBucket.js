@@ -30,7 +30,7 @@ class FillBucket extends PaintFunction{
             let x = curPos[0];
             let y = curPos[1]
             let pixelPosition = (y * canvasDraft.width + x) * 4;
-            while (y-- && this.matchStartColor(pixelPosition)) {
+            while (y-->=0 && this.matchStartColor(pixelPosition)) {
                 pixelPosition -= canvasDraft.width * 4;
             }
             y++;
@@ -75,6 +75,7 @@ class FillBucket extends PaintFunction{
     onMouseUp(coord, event) {
         let history = { mode: 'fill', start: [this.origX, this.origY], style: this.style };
         DoneStack.push(history);
+        currentSafeState = 0;
         this.style = {
             color: $('#colorPicker').val()
         };

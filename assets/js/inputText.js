@@ -106,6 +106,7 @@ class InputText extends PaintFunction{
             let history = { mode: 'text', start: [this.origX, this.origY], string: this.string.join(''), style: this.style }
             DoneStack.push(history);
             DeleteStack = [];
+            currentSafeState = 0;
             console.log('text',DoneStack)
             this.string = [];
             this.style = {

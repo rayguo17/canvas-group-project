@@ -102,7 +102,7 @@ class DrawingPolygons extends PaintFunction {
     let history = { mode: "poly", points: this.points, style: this.style };
       DoneStack.push(history);
       DeleteStack = [];
-
+    currentSafeState = 0;
     this.style = {
       color: $("#colorPicker").val(),
       lineWidth: $("#lineWidth").val(),
