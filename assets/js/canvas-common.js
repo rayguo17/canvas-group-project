@@ -10,8 +10,7 @@ let DeleteStack = [];
 let currentSafeState = 0;
 let currentName = '';
 //TODO:deleteStack and safeState should be clear once new action is done!!!!
-const reader = new FileReader();
-const img = new Image();
+
 const WordValidation = ['Backspace', 'Enter', 'Shift', 'Control', 'Tab', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'CapsLock'];
 //TODO: CHANGE COLOR IN ON MOUSE UP;
 $('#canvas-draft').mousedown(function(e){

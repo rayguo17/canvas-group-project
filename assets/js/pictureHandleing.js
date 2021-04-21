@@ -9,13 +9,17 @@ async function downloadCanvas() {
 }
 
 function uploadImage(e) {
+    
+    const reader = new FileReader();
+    const img = new Image();
     reader.onload = () => {
+        img.src = reader.result;
         img.onload = () => {
             console.log(img);
             contextReal.drawImage(img, 0, 0);
         };
-        console.log('indicator', reader.result);
-        img.src = reader.result;
+        //console.log('indicator', reader.result);
+        
     }
     console.log('readerURL', e.target.files);
     //only work with this;
@@ -23,7 +27,10 @@ function uploadImage(e) {
 }
 function getPaint(e) {
     let name = prompt("What is the name of the masterpiece?");
-    
+    if (name == null) {
+        console.log('cancel save');
+        return;
+    }
     let storageRef = firebase.storage().ref();
     
     storageRef.child(`test/${name}.json`).getDownloadURL().then((url) => {
@@ -104,7 +111,8 @@ function savePaint(e) {
             alert('name Exist')
             return;
         }
-        currentSafeState = 1;
+        currentName = name;
+    currentSafeState = 1;
     let paintBoard = {
         paintBoardName: name,
         Stack: DoneStack
@@ -134,8 +142,11 @@ function savePaint(e) {
     for (let i = 0; i < frames.length; i++){
         
         let frame = frames[i];
+        console.log(currentName);
+        console.log('')
         if (frame.id == '') {
             //printFlag = 1;
+            console.log('frameId', frame.id);
             frame.id = `${currentName}`;
             canvasReal.toBlob(function (blob) {
                 let url = URL.createObjectURL(blob);

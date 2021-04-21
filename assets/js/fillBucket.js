@@ -17,9 +17,10 @@ class FillBucket extends PaintFunction{
         this.startG = this.context.getImageData(this.origX, this.origY, 1, 1).data[1];
         this.startB = this.context.getImageData(this.origX, this.origY, 1, 1).data[2];
         this.startO = this.context.getImageData(this.origX, this.origY, 1, 1).data[3];
-        
+        this.doneFlag = 1;
         if (`#${this.startR.toString(16).padStart(2,'0')}${this.startG.toString(16).padStart(2,'0')}${this.startB.toString(16).padStart(2,'0')}` == this.style.color && this.startO ==255) {
             alert("they are the same color");
+            this.doneFlag == 0;
             return;
         }
         this.pixelStack.push([this.origX, this.origY]);
@@ -73,6 +74,10 @@ class FillBucket extends PaintFunction{
         
     }
     onMouseUp(coord, event) {
+        //chekck if it is the same color or not
+        if (this.doneFlag == 0) {
+            return;
+        }
         let history = { mode: 'fill', start: [this.origX, this.origY], style: this.style };
         DoneStack.push(history);
         currentSafeState = 0;
