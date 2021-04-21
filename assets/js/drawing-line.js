@@ -42,8 +42,12 @@ class DrawingLine extends PaintFunction{
         };
         this.points = [];
     }
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseLeave(){
+        $('#canvas-draft').css('cursor', 'auto')
+    }
+    onMouseEnter(){
+        $('#canvas-draft').css('cursor', 'crosshair')
+    }
 
     draw(x,y){
         this.context.lineTo(x,y);

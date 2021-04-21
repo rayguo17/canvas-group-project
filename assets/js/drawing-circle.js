@@ -37,6 +37,10 @@ class DrawingCircle extends PaintFunction{
         }
         console.log('Circle',DoneStack);
     }
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseLeave(){
+        $('#canvas-draft').css('cursor', 'auto')
+    }
+    onMouseEnter(){
+        $('#canvas-draft').css('cursor', 'crosshair')
+    }
 }

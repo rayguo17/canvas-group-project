@@ -56,79 +56,100 @@
           <div class="wallPlace"></div>
         </div>
       </div>
+      
+    
       <div id="stylingBackground" id="form">
         <form action="">
           <h2>Styling</h2>
+          <div class="stylingOptions" id ="fontSizeDiv">
           <label for="">Font Size :</label>
           <input type="text" id="font-size" placeholder="unit:px" />
+          </div>
+          <!-- <div class="stylingOptions" id ="lineJoinDiv">
           <label for="lineJoin">Line Join :</label>
           <select name="lineJoin" id="lineJoin">
             <option value="round">round</option>
             <option value="bevel">bevel</option>
             <option selected="selected" value="miter">miter</option>
           </select>
-
-          <label for="uploader">Upload File :</label>
+          </div> -->
+          <!-- <div class="stylingOptions" id ="uploadDiv">
+          <label for="uploader">Upload File:</label>
           <input type="file" id="uploader" />
-
-          <label for="polySides">No. of sides for polygons:</label>
+          </div> -->
+          <div class="stylingOptions" id ="polygonSidesDiv">
+          <label for="polySides">No. of Sides:</label>
           <input type="text" id="polySides" />
-          <label for="lineWidth">line width:</label>
+          </div>
+          <div class="stylingOptions" id ="lineWidthDiv">
+          <label for="lineWidth">Line Width:</label>
           <input type="range" id="lineWidth" min="1" max="20" value="1" />
-
-          <label for="colorPicker">Color :</label>
+          </div>
+          <div class="stylingOptions" id ="strokeColorDiv">
+          <label for="colorPicker">Stroke Color:</label>
           <input type="color" id="colorPicker" value="#ff0000" />
-          <input type="color" id="colorPicker" value="#00ff00" />
-          <input type="color" id="colorPicker" value="#0099ff" />
-          <input type="color" id="colorPicker" value="#9933ff" />
+          </div>
+          <div class="stylingOptions" id ="fillColorDiv">
+            <label for="colorPicker">Fill Color:</label>
+            <input type="color" id="colorPicker" value="#ff0000" />
+            </div>
         </form>
       </div>
+      <div id ="uploadDiv">
+        <form action="" >
+          <input type="file" id="uploader"/>
+        </form>
+       </div>
     </div>
+
     <div id="toolBar">
       <div class="buttonsBox">
-        <div class="buttons">
-          <i class="fa fa-paint-brush fa-2x" id="drawing-line"></i>
+        <div class="buttons" id="drawing-line">
+          <i class="fa fa-paint-brush fa-2x" ></i>
         </div>
-        <div class="buttons">
-          <i class="fa fa-square fa-2x" id="drawing-rectangle"> </i>
+        <div class="buttons" id="drawing-rectangle">
+          <i class="fa fa-square fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-circle fa-2x" id="drawing-circle"> </i>
+        <div class="buttons" id="drawing-circle">
+          <i class="fas fa-circle fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fa fa-slash fa-2x" id="draw-st-line"> </i>
+        <div class="buttons" id="draw-st-line">
+          <i class="fa fa-slash fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-draw-polygon fa-2x" id="polygons"> </i>
+        <div class="buttons" id="polygons">
+          <i class="fas fa-draw-polygon fa-2x" ></i> </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-fill-drip fa-2x" id="fill-bucket"></i>
-        </div>
-        <div class="divider"></div>
-        <div class="buttons">
-          <i class="fas fa-trash-alt fa-2x" id="clear"> </i>
-        </div>
-        <div class="buttons">
-          <i class="fas fa-eraser fa-2x" id="eraser"> </i>
-        </div>
-        <div class="buttons">
-          <i class="fas fa-font fa-2x" id="input-text"> </i>
+        <div class="buttons" id="fill-bucket">
+          <i class="fas fa-fill-drip fa-2x" ></i>
         </div>
         <div class="divider"></div>
-        <div class="buttons">
-          <i class="fa fa-undo fa-2x" id="undo"> </i>
+        <div class="buttons" id="clear">
+          <i class="fas fa-trash-alt fa-2x" ></i> </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-redo fa-2x" id="redo"> </i>
+        <div class="buttons" id="eraser">
+          <i class="fas fa-eraser fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-download fa-2x" id="download"> </i>
+        <div class="buttons" id="input-text">
+          <i class="fas fa-font fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-save fa-2x" id="save"></i>
+        <div class="divider"></div>
+        <div class="buttons" id="undo">
+          <i class="fa fa-undo fa-2x" > </i>
         </div>
-        <div class="buttons">
-          <i class="fas fa-search fa-2x" id="search"></i>
+        <div class="buttons" id="redo">
+          <i class="fas fa-redo fa-2x" > </i>
+        </div>
+        <div class="buttons" id="upload">
+          <i class="fas fa-upload fa-2x" > </i>
+        </div>
+        <div class="buttons" id="download">
+          <i class="fas fa-download fa-2x" > </i>
+        </div>
+        <div class="buttons" id="save">
+          <i class="fas fa-save fa-2x" ></i>
+        </div>
+        <div class="buttons" id="search">
+          <i class="fas fa-search fa-2x" ></i>
         </div>
       </div>
     </div>

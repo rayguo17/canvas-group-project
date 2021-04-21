@@ -109,4 +109,11 @@ class DrawingPolygons extends PaintFunction {
     };
     console.log("POLY", DoneStack);
   }
+
+  onMouseLeave(){
+    $('#canvas-draft').css('cursor', 'auto')
+}
+  onMouseEnter(){
+    $('#canvas-draft').css('cursor', 'crosshair')
+}
 }
