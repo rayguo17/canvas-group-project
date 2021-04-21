@@ -8,8 +8,8 @@ function drawRectangle_stroke(ctx, start, dim, style) {
     
 }
 function drawRectangle_fill(ctx, start, dim, style) {
-    ctx.fillStyle = style.color;
-    ctx.fillRect(start[0], start[1], dim[0], dim[1]);
+    ctx.strokeStyle = style.color;
+    ctx.strokeRect(start[0], start[1], dim[0], dim[1]);
 }
 
 function drawCircle_fill(ctx, center, radius, style){

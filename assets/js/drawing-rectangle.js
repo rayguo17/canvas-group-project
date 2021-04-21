@@ -3,24 +3,24 @@ class DrawingRectangle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.style = { color: $('#fillColorDiv #colorPicker').val() };
+        this.style = { color: $('#strokeColorDiv #colorPicker').val() };
     }
     
     onMouseDown(coord,event){
-        this.contextReal.fillStyle = this.style.color;
+        this.contextReal.strokeStyle = this.style.color;
         this.origX = coord[0];
         this.origY = coord[1];
     }
     onDragging(coord,event){
-        this.contextDraft.fillStyle = this.style.color;
+        this.contextDraft.strokeStyle = this.style.color;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextDraft.fillRect(this.origX,this.origY,coord[0]- this.origX,coord[1] - this.origY)
+        this.contextDraft.strokeRect(this.origX,this.origY,coord[0]- this.origX,coord[1] - this.origY)
     }
 
     onMouseMove(){}
     onMouseUp(coord){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextReal.fillRect(this.origX, this.origY, coord[0] - this.origX, coord[1] - this.origY)
+        this.contextReal.strokeRect(this.origX, this.origY, coord[0] - this.origX, coord[1] - this.origY)
         let history = { start: [this.origX, this.origY], dim: [coord[0] - this.origX, coord[1] - this.origY], style: this.style, mode: 'rec' };
         if (history.dim[0] == 0 || history.dim[1] == 0) {
             
@@ -28,7 +28,7 @@ class DrawingRectangle extends PaintFunction{
             currentSafeState = 0;
             DoneStack.push(history);
             DeleteStack = [];
-            this.style = { color: $('#fillColorDiv #colorPicker').val() };
+            this.style = { color: $('#strokeColorDiv #colorPicker').val() };
         }
         
         console.log('Rec',DoneStack);

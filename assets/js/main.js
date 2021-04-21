@@ -25,7 +25,7 @@ $(function () {
     $('#drawing-rectangle').click(()=>{
         $('#stylingBackground').animate({right:'-8%'});
         $('#colorDiv').show();
-        $('#fillColorDiv').show();
+        $('#strokeColorDiv').show();
         console.log('rec');
         currentFunction = new DrawingRectangle(contextReal,contextDraft);
     });
