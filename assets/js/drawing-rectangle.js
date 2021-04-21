@@ -33,6 +33,10 @@ class DrawingRectangle extends PaintFunction{
         
         console.log('Rec',DoneStack);
     }
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseLeave(){
+        $('#canvas-draft').css('cursor', 'auto')
+    }
+    onMouseEnter(){
+        $('#canvas-draft').css('cursor', 'crosshair')
+    }
 }

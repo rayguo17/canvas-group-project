@@ -43,6 +43,10 @@ class DrawingStLine extends PaintFunction{
         }
         console.log('Stline',DoneStack);
     }
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseLeave(){
+        $('#canvas-draft').css('cursor', 'auto')
+    }
+    onMouseEnter(){
+        $('#canvas-draft').css('cursor', 'crosshair')
+    }
 }
