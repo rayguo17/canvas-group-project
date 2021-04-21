@@ -4,7 +4,7 @@ $(function () {
         $('.buttons').css('background', 'rgb(155, 117, 46)');
         $(this).css('background', 'rgb(207, 158, 66)');
         $('.stylingOptions').hide();
-        $('#uploader').hide();
+        $('.uploader').hide();
         $('#stylingBackground').animate({right:'-30%'});
     })
     
@@ -74,7 +74,7 @@ $(function () {
     $('#uploader').on('change', uploadImage);
 
     $('#upload').click((e) => {
-        $('#uploader').show();
+        $('.uploader').show();
     });
    
     $('#polygons').click((e) => {
